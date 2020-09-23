@@ -29,11 +29,11 @@ pipeline {
 	stage('build'){
 		      steps {
 			      script{
-                sh 'docker build . -t snetadocker/dockerapp:$Docker_tag'
+                sh 'docker build . -t snetadocker/dockerapp:latest'
                 withCredentials([string(credentialsId: 'docker_password', variable: 'docker_password')]) {
     
                 sh '''docker login -u snetadocker -p $docker_password
-                docker push snetadocker/dockerapp:$Docker_tag
+                docker push snetadocker/dockerapp:latest
 		'''
                 }
                 
