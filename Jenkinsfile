@@ -9,8 +9,7 @@ pipeline {
     agent any
     tools {
         maven 'maven'
-        jdk 'java '
-	docker 'docker'    
+        jdk 'java '    
     }
     stages {
         stage ('Initialize') {
