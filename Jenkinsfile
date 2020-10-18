@@ -12,7 +12,10 @@ pipeline{
               stage('Quality Gate Status Check'){
                   steps{
                       script{
-		    	    sh "mvn clean install"
+		    	    docker.withRegistry('https://hub.docker.com/', 'docker_credentials') {
+			    image = docker.image('terraform:1.0')
+			    image.pull()
+			}
                  	}
 
                	 }  
